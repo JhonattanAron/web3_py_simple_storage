@@ -51,10 +51,10 @@ abi = json.loads(compile_sol["contracts"]["Simple_Storage.sol"]["SimpleStorage"]
 
 # Conexion a garnache para hacer el despliege
 
-w3 = Web3(Web3.HTTPProvider("HTTP://172.21.16.1:7545"))
+w3 = Web3(Web3.HTTPProvider(os.getenv("HOST")))
 
-chain_id = 1337
-my_address = "0x0c04c50AA29d98858D138c2ce1B31cAE962aF0Be"
+chain_id = os.getenv("CHAIN_ID")
+my_address = os.getenv("MY_ADDRESS")
 private_key =  os.getenv("PRIVATE_KEY")
 
 SimpkeStorage = w3.eth.contract(abi = abi, bytecode = bytecode);
