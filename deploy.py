@@ -1,13 +1,13 @@
 from solcx import compile_standard , install_solc
 import json
 import os
-from dotenv import load_dotenv
+from py_dotenv import read_dotenv
 from web3 import Web3 
 
-load_dotenv()
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+read_dotenv(dotenv_path)
 
-
-with open('./Simple_Storage.sol' , "r") as file:
+with open('./contracts/Simple_Storage.sol' , "r") as file:
     simple_storage_file = file.read()
 
 # Instalamos Solidity Version
@@ -39,7 +39,7 @@ solc_version="0.6.0"
 )
 
 
-with open("compile_sol_json.json", "w") as file:
+with open("./json/compile_sol_json.json", "w") as file:
     json.dump(compile_sol, file)
 
 
