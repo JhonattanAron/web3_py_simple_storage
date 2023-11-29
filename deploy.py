@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from web3 import Web3 
 
+load_dotenv()
 
 
 with open('./Simple_Storage.sol' , "r") as file:
@@ -51,9 +52,9 @@ abi = json.loads(compile_sol["contracts"]["Simple_Storage.sol"]["SimpleStorage"]
 
 # Conexion a garnache para hacer el despliege
 
-w3 = Web3(Web3.HTTPProvider(os.getenv("HOST")))
+w3 = Web3(Web3.HTTPProvider("HTTP://172.27.32.1:7545"))
 
-chain_id = os.getenv("CHAIN_ID")
+chain_id = 1337
 my_address = os.getenv("MY_ADDRESS")
 private_key =  os.getenv("PRIVATE_KEY")
 
