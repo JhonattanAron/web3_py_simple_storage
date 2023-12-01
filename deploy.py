@@ -45,7 +45,7 @@ abi = json.loads(compile_sol["contracts"]["Simple_Storage.sol"]["SimpleStorage"]
 # Conexion a Ganache para hacer el despliegue
 w3 = Web3(Web3.HTTPProvider(os.getenv("RPC_SERVER")))
 
-chain_id = 1337
+chain_id = 11155111
 my_address = os.getenv("MY_ADDRESS")
 private_key = os.getenv("PRIVATE_KEY")
 
